@@ -1,38 +1,49 @@
-# Ex.No:5(A)  DATA HIDING AND ENCAPSULATION
+# Ex.No:5(A) INPUTSTREAMREADER 
+
+## QUESTION:
+Write a Java program to write characters to a file using FileWriter.
+
 ## AIM:
-To Create a java program to display name and location of the employee and use the encapsulation concepts
+To write character data into a file using the FileWriter class in Java.
 
 ## ALGORITHM :
-1.  Start the program
-2.	Define class `Employee`:
--	a) Declare two private `String` variables: `name1` and `name2`
--	b) Define `setname(String n1)` method to set `name1` to `n1`
--	c) Define `setname2(String n2)` method to set `name2` to `n2`
--	d) Define `get1()` method to return `name1`
--	e) Define `get2()` method to return `name2`
-3.	Define `Main` class with `main` method:
--	a) Create `Scanner` object `sc` for input
--	b) Read `name1` and `name2` from user input
--	c) Create ` Employee ` object `hl`
--	d) Use `hl.setname(name1)` and `hl.setname2(name2)` to set the names
--	e) Print the values of `hl.get1()` and `hl.get2()`
-4.	End
-
-
-
-
+1.	Import java.io.FileWriter and java.io.IOException.
+2.	Take user input using Scanner.
+3.	Create a FileWriter object with the desired file name.
+4.	Use write() method to write text into the file.
+5.	Close the FileWriter and handle exceptions using try-catch.
 
 ## PROGRAM:
  ```
 /*
-Program to implement a Data Hiding & Encapsulation using Java
-Developed by: 
-RegisterNumber:  
+Program to implement a InputStreamReader using Java
+Developed by: KEERTHIVASAN S
+RegisterNumber: 212223220046  
 */
 ```
 
-## Sourcecode.java:
+## SOURCE CODE:
+```
+import java.io.*;
 
+public class FileWriteExample {
+    public static void main(String[] args) {
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String filename = br.readLine();
+            String content = br.readLine();
+
+            FileWriter fw = new FileWriter(filename);
+            fw.write(content);
+            fw.close();
+
+            System.out.println("File written successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+        }
+    }
+}
+```
 
 
 
@@ -40,8 +51,7 @@ RegisterNumber:
 
 
 ## OUTPUT:
-
-
+<img width="1239" height="395" alt="image" src="https://github.com/user-attachments/assets/f1eb5219-05ab-4882-990c-ab044ebd6ca8" />
 
 ## RESULT:
-Thus , the  java program to display name and location of the employee and use the encapsulation concepts executed successfully.
+The program successfully writes the entered text into output.txt using FileWriter.

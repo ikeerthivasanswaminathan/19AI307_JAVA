@@ -1,31 +1,66 @@
-# Ex.No:5(C)    GETTER AND SETTER METHOD
+# Ex.No:5(C)  FILE HANDLING USING JAVA
+## QUESTION:
+Write a program to count the number of characters in a file.
 
 ## AIM:
-To Create a java program to print the sum of two number using getter and setter method.
+To count and display the total number of characters in a file using FileReader.
 
 ## ALGORITHM :
-1.  Start the Program
-2.	Define class `Employee`:
--	a) Private variables `n1` and `n2`
--	b) Method `setsum(int n1, int n2)` to set values of `n1` and `n2`
--	c) Method `getsum()` to calculate and print `sum = n1 + n2`
-3.	In `main` class `main` method:
--	a) Use `Scanner` to read integers `n1` and `n2`
--	b) Create ` Employee ` object, set values, and call `getsum()`
-4.	End
-
+1.	Ask the user for the file name.
+2.	Open the file using FileReader.
+3.	Read each character one by one until the end of the file.
+4.	Increment a counter for each character read.
+5.	Display the total character count.
 
 ## PROGRAM:
  ```
 /*
-Program to implement a Getter and Setter using Java
-Developed by: 
-RegisterNumber:  
+Program to implement a File Handling using Java
+Developed by: KEERTHIVASAN S
+RegisterNumber: 212223220046 
 */
 ```
 
-## Sourcecode.java:
+## SOURCE CODE:
+```
+import java.io.*;
 
+public class FileCharacterCount {
+    public static void main(String[] args) {
+        try {
+            // Use BufferedReader to read input
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            // Read the text to write (assume file name is fixed)
+            String text = br.readLine();
+
+            // Use a fixed file name
+            String fileName = "output.txt";
+
+            // Write text to file
+            try (FileWriter fw = new FileWriter(fileName)) {
+                if (text != null) {
+                    fw.write(text);
+                }
+            }
+
+            // Count characters in file
+            int charCount = 0;
+            try (FileReader fr = new FileReader(fileName)) {
+                while (fr.read() != -1) {
+                    charCount++;
+                }
+            }
+
+            System.out.println("Number of characters written to the file: " + charCount);
+
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+```
 
 
 
@@ -33,14 +68,9 @@ RegisterNumber:
 
 
 ## OUTPUT:
+<img width="1271" height="303" alt="image" src="https://github.com/user-attachments/assets/8417184e-b934-4c43-a19c-4bc7cec02f4e" />
 
 
 
 ## RESULT:
-Thus the java program to print the sum of two number using getter and setter method was executed successfully.
-
-
-
-
-
-
+The program successfully reads the file and prints the total number of characters present in it.
